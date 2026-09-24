@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Nossa Rotina</title>
+  <desc id="description">A letra H estilizada com um sol, representando a rotina compartilhada.</desc>
+  <rect width="512" height="512" rx="128" fill="#315c4d"/>
+  <rect x="112" y="112" width="288" height="288" rx="72" fill="#f8f6f1"/>
+  <circle cx="256" cy="91" r="34" fill="#efb95c"/>
+  <path d="M184 178v164M328 178v164M184 260h144" fill="none" stroke="#315c4d" stroke-width="36" stroke-linecap="round"/>
+</svg>
