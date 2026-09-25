@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { X } from 'lucide-react';
-import { getIconName, iconOptions } from './IconBadge';
+import { getIconName, IconName, iconOptions } from './IconBadge';
 import type { Period, Person, RoutineTask } from '../types/routine';
 
 interface Props { person: Person; task?: RoutineTask; nextOrder: number; onSave: (task: RoutineTask) => void; onClose: () => void }
@@ -24,7 +24,7 @@ export function TaskForm({ person, task, nextOrder, onSave, onClose }: Props) {
         <label>Título<input autoFocus value={title} onChange={e => setTitle(e.target.value)} placeholder="Ex.: Café da manhã" /></label>
         <div className="form-row"><label>Horário inicial<input type="time" value={startTime} onChange={e => setStartTime(e.target.value)} /></label><label>Horário final <small>(opcional)</small><input type="time" value={endTime} onChange={e => setEndTime(e.target.value)} /></label></div>
         <label>Período<select value={period} onChange={e => setPeriod(e.target.value as Period)}><option value="morning">Manhã</option><option value="afternoon">Tarde</option><option value="night">Noite</option></select></label>
-        <label>Ícone<select value={icon} onChange={e => setIcon(e.target.value)}>{iconOptions.map(([value, name]) => <option key={value} value={value}>{name}</option>)}</select></label>
+        <label>Ícone<select value={icon} onChange={e => setIcon(e.target.value as IconName)}>{iconOptions.map(([value, name]) => <option key={value} value={value}>{name}</option>)}</select></label>
         {error && <p className="form-error" role="alert">{error}</p>}
         <footer><button type="button" className="button secondary" onClick={onClose}>Cancelar</button><button className="button primary" type="submit">Salvar</button></footer>
       </form>
