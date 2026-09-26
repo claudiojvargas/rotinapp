@@ -1,6 +1,6 @@
 # Nossa Rotina
 
-Mini aplicação PWA, mobile-first, para visualizar e editar as rotinas diárias de Claudio e Malu. Os dados ficam somente no `localStorage` do aparelho.
+Mini aplicação PWA, mobile-first, para visualizar rotinas compartilhadas e editar a rotina do usuário atual. Os dados ficam somente no `localStorage` do aparelho.
 
 ## Executar localmente
 

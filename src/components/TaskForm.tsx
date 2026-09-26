@@ -1,11 +1,11 @@
 import { useState, type FormEvent } from 'react';
 import { X } from 'lucide-react';
 import { getIconName, IconName, iconOptions } from './IconBadge';
-import type { Period, Person, RoutineTask } from '../types/routine';
+import type { Period, RoutineTask, UserId } from '../types/routine';
 
-interface Props { person: Person; task?: RoutineTask; nextOrder: number; onSave: (task: RoutineTask) => void; onClose: () => void }
+interface Props { userId: UserId; task?: RoutineTask; nextOrder: number; onSave: (task: RoutineTask) => void; onClose: () => void }
 
-export function TaskForm({ person, task, nextOrder, onSave, onClose }: Props) {
+export function TaskForm({ userId, task, nextOrder, onSave, onClose }: Props) {
   const [title, setTitle] = useState(task?.title ?? '');
   const [startTime, setStartTime] = useState(task?.startTime ?? '');
   const [endTime, setEndTime] = useState(task?.endTime ?? '');
@@ -15,7 +15,7 @@ export function TaskForm({ person, task, nextOrder, onSave, onClose }: Props) {
   function submit(event: FormEvent) {
     event.preventDefault();
     if (!title.trim() || !startTime) { setError('Preencha o título e o horário inicial.'); return; }
-    onSave({ id: task?.id ?? crypto.randomUUID(), person, title: title.trim(), startTime, endTime: endTime || undefined, period, icon, order: task?.order ?? nextOrder });
+    onSave({ id: task?.id ?? crypto.randomUUID(), userId, title: title.trim(), startTime, endTime: endTime || undefined, period, icon, order: task?.order ?? nextOrder });
   }
   return <div className="modal-backdrop" role="presentation" onMouseDown={event => event.target === event.currentTarget && onClose()}>
     <section className="modal" role="dialog" aria-modal="true" aria-labelledby="task-form-title">

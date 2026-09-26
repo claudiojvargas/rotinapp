@@ -13,7 +13,7 @@ export default defineConfig({
       manifest: {
         name: 'Nossa Rotina',
         short_name: 'Rotina',
-        description: 'A rotina diária de Claudio e Malu.',
+        description: 'A rotina diária de duas pessoas.',
         theme_color: '#f8f6f1',
         background_color: '#f8f6f1',
         display: 'standalone',

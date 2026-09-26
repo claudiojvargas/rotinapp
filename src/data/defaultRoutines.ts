@@ -1,4 +1,4 @@
-import type { Period, RoutineTask, Routines } from '../types/routine';
+import type { Period, RoutineTask, Routines, UserId } from '../types/routine';
 
 const entries: ReadonlyArray<readonly [string, string, string, Period, string]> = [
   ['07:00', '07:30', 'Acordar, higiene e beber água', 'morning', 'sunrise'],
@@ -22,19 +22,12 @@ const entries: ReadonlyArray<readonly [string, string, string, Period, string]> 
   ['23:30', '00:00', 'Dormir', 'night', 'bed']
 ];
 
-export const createDefaultRoutine = (person: RoutineTask['person']): RoutineTask[] =>
+export const createDefaultRoutine = (userId: UserId): RoutineTask[] =>
   entries.map(([startTime, endTime, title, period, icon], order) => ({
-    id: `${person}-${order + 1}`,
-    person,
-    title,
-    startTime,
-    endTime,
-    period,
-    icon,
-    order
+    id: `${userId}-${order + 1}`, userId, title, startTime, endTime, period, icon, order
   }));
 
 export const defaultRoutines: Routines = {
-  claudio: createDefaultRoutine('claudio'),
-  malu: createDefaultRoutine('malu')
+  user1: createDefaultRoutine('user1'),
+  user2: createDefaultRoutine('user2')
 };
